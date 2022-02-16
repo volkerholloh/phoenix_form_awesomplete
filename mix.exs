@@ -4,25 +4,26 @@ defmodule PhoenixFormAwesomplete.Mixfile do
   @version "0.1.6"
 
   def project do
-    [app: :phoenix_form_awesomplete,
-     version: @version,
-     elixir: "~> 1.4",
+    [
+      app: :phoenix_form_awesomplete,
+      version: @version,
+      elixir: "~> 1.4",
 
-     # Hex
-     package: package(),
-     description: description(),
+      # Hex
+      package: package(),
+      description: description(),
 
-     # Docs
-     name: "PhoenixFormAwesomplete",
-     docs: [source_ref: "master", main: "PhoenixFormAwesomplete",
-            canonical: "http://hexdocs.pm/phoenix_form_awesomplete",
-            source_url: "https://github.com/nico-amsterdam/phoenix_form_awesomplete"
-           ],
-
-     build_embedded:  Mix.env == :prod,
-     start_permanent: Mix.env == :prod,
-
-     deps: deps()
+      # Docs
+      name: "PhoenixFormAwesomplete",
+      docs: [
+        source_ref: "master",
+        main: "PhoenixFormAwesomplete",
+        canonical: "http://hexdocs.pm/phoenix_form_awesomplete",
+        source_url: "https://github.com/nico-amsterdam/phoenix_form_awesomplete"
+      ],
+      build_embedded: Mix.env() == :prod,
+      start_permanent: Mix.env() == :prod,
+      deps: deps()
     ]
   end
 
@@ -31,7 +32,7 @@ defmodule PhoenixFormAwesomplete.Mixfile do
   # Type "mix help compile.app" for more information
   def application do
     [
-     extra_applications: [:logger]
+      extra_applications: [:logger]
     ]
   end
 
@@ -46,7 +47,7 @@ defmodule PhoenixFormAwesomplete.Mixfile do
   # Type "mix help deps" for more examples and options
   defp deps do
     [
-      {:phoenix_html, "~> 2.10"},
+      {:phoenix_html, "~> 3.2"},
       {:ex_doc, "~> 0.22.6", only: :dev}
     ]
   end
@@ -61,11 +62,14 @@ defmodule PhoenixFormAwesomplete.Mixfile do
 
   defp package do
     [
-     name: :phoenix_form_awesomplete,
-     maintainers: ["Nico Hoogervorst"],
-     licenses: ["MIT"],
-     links: %{"GitHub" => "https://github.com/nico-amsterdam/phoenix_form_awesomplete", 
-              "Documentation with live examples" => "https://nico-amsterdam.github.io/awesomplete-util/phoenix.html" }
+      name: :phoenix_form_awesomplete,
+      maintainers: ["Nico Hoogervorst"],
+      licenses: ["MIT"],
+      links: %{
+        "GitHub" => "https://github.com/nico-amsterdam/phoenix_form_awesomplete",
+        "Documentation with live examples" =>
+          "https://nico-amsterdam.github.io/awesomplete-util/phoenix.html"
+      }
     ]
   end
 end
